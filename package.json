@@ -1,0 +1,27 @@
+{
+  "name": "Fox35newsTalk",
+  "version": "1.0.0",
+  "description": "A Project demonstrating proficiency scraping data from a local news website and creating a social platform to discuss it using a deployed MongoDB backend database.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huntsimon23/Fox35newsTalk.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huntsimon23/Fox35newsTalk/issues"
+  },
+  "homepage": "https://github.com/huntsimon23/Fox35newsTalk#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mongoose": "^5.6.1"
+  }
+}
