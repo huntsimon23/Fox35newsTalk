@@ -1,42 +1,39 @@
-  <!-- Page Content -->
   <div class="container container-fluid">
 
-    <!-- Heading Row -->
     <div class="row align-items-center my-5">
       <div class="col-lg-7">
-        <img class="img-fluid rounded mb-4 mb-lg-0" src="../public/images/Fox-35-Orlando.jpg" alt="">
+        <img class="img-fluid" src="https://www.broadcastingcable.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_750/MTU0MjAzNDk1NTYyNjgzNzU4/fox-35jpg.webp" alt="">
       </div>
-      <!-- /.col-lg-8 -->
+
       <div class="col-lg-5">
         <h1 class="font-weight-light">Fox35 NewsTalk!</h1>
         <p>This is a place to discuss all things happening locally in the news!  Click below for the latest headlines and be sure to opine in the comment section under your favorite stories!</p>
         <a class="btn btn-primary" href="#">Get the latest headlines!</a>
       </div>
-      <!-- /.col-md-4 -->
+     
     </div>
-    <!-- /.row -->
-
-    <!-- Call to Action Well -->
+  
     <div class="card text-white bg-secondary my-5 py-4 text-center">
       <div class="card-body">
         <p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p>
       </div>
     </div>
 
-    <!-- Content Row -->
     <div class="row">
+      {{#each story}}
       <div class="col-md-4 mb-5">
         <div class="card h-100">
           <div class="card-body">
-            <h2 class="card-title">Card One</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+            <h2 class="card-title">{{this.title}}</h2>
+            <p class="card-text"><a href ={{this.link}}>Read Story</a></p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary btn-sm">More Info</a>
+            <a href="#" class="btn btn-primary btn-sm">Leave a Comment!</a>
           </div>
         </div>
       </div>
-      <!-- /.col-md-4 -->
+      {{/each}}
+      {{!-- <!-- /.col-md-4 -->
       <div class="col-md-4 mb-5">
         <div class="card h-100">
           <div class="card-body">
@@ -60,18 +57,14 @@
           </div>
         </div>
       </div>
-      <!-- /.col-md-4 -->
+      <!-- /.col-md-4 --> --}}
 
     </div>
-    <!-- /.row -->
-
   </div>
-  <!-- /.container -->
+  {{!-- <!-- /.container --> --}}
 
-  <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+      <p class="m-0 text-center text-white">made by the Fresh Coconut</p>
     </div>
-    <!-- /.container -->
   </footer>
