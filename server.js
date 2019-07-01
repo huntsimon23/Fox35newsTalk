@@ -18,15 +18,7 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Make public a static folder
-app.use(express.static("/public"));
-app.use(express.static("./public/images"));
-app.use(express.static("./public/css"));
-app.use(express.static("/public/vendor/bootstrap/css"));
-app.use(express.static("/public/vendor/bootstrap/js"));
-app.use(express.static("/public/vendor/bootstrap/jquery"));
-app.use(express.static("/public/vendor/bootstrap/js/bootstrap.bundle.min.js"));
-app.use(express.static("/public/css/small-business.css"));
-app.use(express.static("/public/images/Fox-35-Orlando.jpg"));
+app.use(express.static("public"));
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");

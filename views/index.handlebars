@@ -1,5 +1,4 @@
   <div class="container container-fluid">
-
     <div class="row align-items-center my-5">
       <div class="col-lg-7">
         <img class="img-fluid" src="https://www.broadcastingcable.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_750/MTU0MjAzNDk1NTYyNjgzNzU4/fox-35jpg.webp" alt="">
@@ -8,60 +7,62 @@
       <div class="col-lg-5">
         <h1 class="font-weight-light">Fox35 NewsTalk!</h1>
         <p>This is a place to discuss all things happening locally in the news!  Click below for the latest headlines and be sure to opine in the comment section under your favorite stories!</p>
-        <a class="btn btn-primary" href="#">Get the latest headlines!</a>
-      </div>
-     
-    </div>
-  
-    <div class="card text-white bg-secondary my-5 py-4 text-center">
-      <div class="card-body">
-        <p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p>
+        {{!-- <a class="btn btn-primary scrape" action="/scrape" method="get">Join the Conversation!</a> --}}
       </div>
     </div>
 
     <div class="row">
       {{#each story}}
+      {{#if this.img}}
       <div class="col-md-4 mb-5">
         <div class="card h-100">
           <div class="card-body">
-            <h2 class="card-title">{{this.title}}</h2>
-            <p class="card-text"><a href ={{this.link}}>Read Story</a></p>
+            <p class="card-text"><img src="{{this.img}}"><br>
+            {{this.title}}<br>
+            <a href="{{this.link}}" target="blank">Read Full Story</a></p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary btn-sm">Leave a Comment!</a>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#commentModal">
+          Leave a Comment!</button>
           </div>
         </div>
       </div>
+
+<!-- Modal -->
+<div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{story.title}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <div class="modal-body">
+    <form action="/api/createNote" method="get">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Your comments:</label>
+        <textarea class="form-control" id="body" rows="3" name="body"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" data-dismiss="modal" class="btn btn-primary post-comment">Save changes</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+      {{/if}}
       {{/each}}
-      {{!-- <!-- /.col-md-4 -->
-      <div class="col-md-4 mb-5">
-        <div class="card h-100">
-          <div class="card-body">
-            <h2 class="card-title">Card Two</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary btn-sm">More Info</a>
-          </div>
-        </div>
-      </div>
-      <!-- /.col-md-4 -->
-      <div class="col-md-4 mb-5">
-        <div class="card h-100">
-          <div class="card-body">
-            <h2 class="card-title">Card Three</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary btn-sm">More Info</a>
-          </div>
-        </div>
-      </div>
-      <!-- /.col-md-4 --> --}}
 
     </div>
   </div>
-  {{!-- <!-- /.container --> --}}
 
   <footer class="py-5 bg-dark">
     <div class="container">
